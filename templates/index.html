@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>レストラン検索</title>
+    <link href="../asset/reset.css" rel="stylesheet" type="text/css" >
+    <link href = "../asset/style.css" rel = "stylesheet" type = "text/css">
+  </head>
+  <body>
+    <h1>現在地付近のレストランを検索</h1>
+    <div class = "button" onclick="getPosition()">現在地を取得</div>
+    <form action="/search" method="post">
+      <label>緯度:</label><input type="text" name="latitude" id="latitude"><br>
+      <label>経度:</label><input type="text" name="longitude" id="longitude"><br>
+      <label for="ranges">検索範囲</label>
+      <select name = "selran" >
+          <option value="1">300m</option>
+          <option value="2">500m</option>
+          <option value="3">1000m </option>
+          <option value="4">2000m </option>
+          <option value="5">3000m </option>
+      </select>      
+      <input type="submit" value="検索">
+    </form>
+    <a id = "map" href = "" target = "_blank">googlemapを表示</a>
+
+    <script>
+      function getPosition(){
+        // Geolocation APIを使用して現在地の緯度・経度を取得
+        let latitude = document.getElementById('latitude');
+        let longitude = document.getElementById('longitude');
+        let map = document.getElementById('map');
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+          latitude.value = position.coords.latitude;
+          longitude.value = position.coords.longitude;
+
+          map.setAttribute('href', `https://www.google.co.jp/maps/@${position.coords.latitude},${position.coords.longitude},15z`);
+        });
+      }
+    </script>
+  </body>
+</html>
