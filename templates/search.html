@@ -9,11 +9,14 @@
 <body>
     <h1>検索結果</h1>
     {% if restaurants %}
-    <ul>
         {% for restaurant in restaurants %}
-            <li>{{ restaurant.name }}</li>
+            <div class = "restaurant-element">
+                <h2>{{ restaurant.name }}</h2>
+                <p>{{ restaurant.address }}</p>
+                <img src = "{{ restaurant.logo_image }}" alt = "{{restaurant.name}}" />
+                <a href = "/restaurant/{{ restaurant.id }}">詳細を見る</a>
+            </div>
         {% endfor %}
-    </ul>
     {% else %}
         <p>検索結果がありません</p>
     {% endif %}

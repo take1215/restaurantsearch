@@ -38,6 +38,19 @@ def search():
 
     # 検索結果をテンプレートに渡して表示
     return render_template('search.html', restaurants=restaurants)
+@app.route('/restaurant/<string:restaurant_id>')
+def restaurant_detail(restaurant_id):
+    params = {
+        'key': HOTPEPPER_API_ACCESS_KEY,
+        'id': restaurant_id,
+        'format': 'json',
+    }
+    response = requests.get(HOTPEPPER_API_ENDPOINT, params = params)
+    #レスポンスをjson形式で取得
+    data = response.json()
+    #受け取ったリストから選択されたお店を取得
+    shop = data['results']['shop'][0]
+    return render_template('detail.html', shop = shop)    
 
 if __name__ == "__main__":
     app.run(debug = True)
