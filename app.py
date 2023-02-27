@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_paginate import Pagination, get_page_parameter
 import requests
 
 app = Flask(__name__)
@@ -35,9 +36,23 @@ def search():
 
     # レストランのリストを取得
     restaurants = data['results']['shop']
+    
+    #ページネーション
+    page = request.args.get(get_page_parameter(),type = int, default = 1)
+    per_page = 5
+    pagination = Pagination(page = page, total = len(restaurants), per_page = per_page)
+    
+    start = (page - 1) * per_page
+    end = start + per_page
+    page_restaurants = restaurants[start: end]
+    
+    context = {
+        'restaurants': page_restaurants,
+        'pagination': pagination,
+    }
 
     # 検索結果をテンプレートに渡して表示
-    return render_template('search.html', restaurants=restaurants)
+    return render_template('search.html', **context)
 @app.route('/restaurant/<string:restaurant_id>')
 def restaurant_detail(restaurant_id):
     params = {
