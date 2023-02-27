@@ -5,22 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>検索結果</title>
+    <link href="static/css/reset.css" rel="stylesheet" type="text/css" >
+    <link href = "static/css/style.css" rel = "stylesheet" type = "text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <h1>検索結果</h1>
+    <div class = "title">
+        <h1>検索結果</h1>
+    </div>
+    
     {% if restaurants %}
         {% for restaurant in restaurants %}
             <div class = "restaurant-element">
                 <h2>{{ restaurant.name }}</h2>
+                <img src = "{{ restaurant.photo.pc.l}}" alt = "{{restaurant.name}}の店舗写真"/>
                 <p>{{ restaurant.address }}</p>
-                <img src = "{{ restaurant.logo_image }}" alt = "{{restaurant.name}}" />
+                <p>★{{ restaurant.access }}</p>
+                <p>定休日：{{ restaurant.close }}曜日</p>
                 <a href = "/restaurant/{{ restaurant.id }}">詳細を見る</a>
             </div>
         {% endfor %}
     {% else %}
         <p>検索結果がありません</p>
     {% endif %}
+    <div class = "pagination-link">
+        {{ pagination.links }}
+    </div>
 
-    {{ pagination.links }}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    
 </body>
 </html>

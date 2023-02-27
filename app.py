@@ -14,7 +14,7 @@ HOTPEPPER_API_ACCESS_KEY = '75882c877722a963'
 def index():
     return render_template('index.html')
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods = ['POST'])
 def search():
     # フォームから送信された現在地の緯度・経度を取得
     latitude = request.form['latitude']
@@ -40,7 +40,7 @@ def search():
     #ページネーション
     page = request.args.get(get_page_parameter(),type = int, default = 1)
     per_page = 5
-    pagination = Pagination(page = page, total = len(restaurants), per_page = per_page)
+    pagination = Pagination(page = page, total = len(restaurants), per_page = per_page, css_framework = 'bootstrap4')
     
     start = (page - 1) * per_page
     end = start + per_page

@@ -1,3 +1,14 @@
+body {
+    text-align: center;
+}
+h1 {
+    font-size: 32px;
+    font-weight: 32px;
+    text-align: center;
+}
+.title {
+    margin: 30px auto;
+}
 .button {
     display: inline-block;
     color: white;
@@ -6,12 +17,65 @@
     border-radius: 10px;
     text-decoration: none;
     text-align: center;
-    padding: 10px;
+    padding: 10px 20px 10px 20px;
     cursor: default;
     font-size: 16px;
     margin: 4px 2px;
 }
+#map {
+    color: blue;
+}
+#map:hover {
+    color: purple;
+}
+.latlng {
+    margin-top: 30px;
+    text-align: center;
+}
+.searchrange {
+    text-align: center;
+    margin-top: 30px;
+}
+#imm {
+    margin-right: 5%;
+}
 .button:hover {
     background-color: #3e8e41;
-    
+}
+.restaurant-element {
+    border: solid 3px;
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.restaurant-element h2 {
+    font-size: 24px;
+    margin: 10px 0px 10px 10px;
+}
+.restaurant-element p {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.restaurant-element img {
+    margin-left: 10px;
+}
+.restaurant-element a {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: blue;
+    margin-left: 10px;
+}
+.restaurant-element a:hover {
+    color: purple;
+}
+.pagination-link nav ul li{
+    background-color: #3e8e41;
+    margin: 0 auto;
+}
+.shop-detail {
+    padding-left: 20px;
+}
+.span {
+    color: black;
 }

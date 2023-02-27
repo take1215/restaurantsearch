@@ -4,24 +4,35 @@
     <title>レストラン検索</title>
     <link href="static/css/reset.css" rel="stylesheet" type="text/css" >
     <link href = "static/css/style.css" rel = "stylesheet" type = "text/css">
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
   </head>
   <body>
-    <h1>現在地付近のレストランを検索</h1>
-    <div class = "button" onclick="getPosition()">現在地を取得</div>
+    <div class = "title">
+      <h1>現在地付近のレストランを検索</h1>
+    </div>
+    
+    <div class = "button" onclick="getPosition()"><span class = "fa fa-map-marker"></span> 現在地を取得</div>
     <form action="/search" method="post">
-      <label>緯度:</label><input type="text" name="latitude" id="latitude"><br>
-      <label>経度:</label><input type="text" name="longitude" id="longitude"><br>
-      <label for="ranges">検索範囲</label>
-      <select name = "selran" >
+      <div class = "latlng">
+        <label>緯度:</label><input type="text" name="latitude" id="latitude"><br>
+        <label>経度:</label><input type="text" name="longitude" id="longitude"><br>
+        <a id = "map" href = "" target = "_blank">googlemapを表示</a>
+      </div>
+      
+      <div class = "searchrange">
+        <label for="ranges">検索範囲</label>
+        <select name = "selran" id = "imm">
           <option value="1">300m</option>
           <option value="2">500m</option>
           <option value="3">1000m </option>
           <option value="4">2000m </option>
           <option value="5">3000m </option>
-      </select>      
-      <input type="submit" value="検索">
+        </select>      
+        <input type="submit" value="レストランを検索">
+      </div>
+      
     </form>
-    <a id = "map" href = "" target = "_blank">googlemapを表示</a>
+    
 
     <script>
       function getPosition(){
