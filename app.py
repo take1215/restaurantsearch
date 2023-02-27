@@ -8,7 +8,7 @@ app = Flask(__name__)
 HOTPEPPER_API_ENDPOINT = 'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/'
 
 # ホットペッパーグルメサーチAPIのアクセスキー
-HOTPEPPER_API_ACCESS_KEY = '75882c877722a963'
+HOTPEPPER_API_ACCESS_KEY = "APIキー"
 
 @app.route('/')
 def index():
