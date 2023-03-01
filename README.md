@@ -11,7 +11,7 @@ RestaurantSearch
 googlemapでの現在地確認ができるようにした(本当はgooglemapから緯度、経度を取得して検索できるようにしたかった)
 
 ### プロジェクトのリポジトリURL
-
+https://github.com/take1215/restaurantsearch
 
 ## 開発環境
 ### 開発環境
